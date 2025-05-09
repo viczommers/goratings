@@ -46,7 +46,7 @@ To do test runs you'll want to be editing and running files in the `analysis` di
 For example, this should work out of the box:
 
 ```
-analysis/analyze_glicko2_one_game_at_a_time.py
+pypy3 -m analysis.analyze_glicko2_one_game_at_a_time
 ```
 
 # Parameter tuning
@@ -54,3 +54,19 @@ analysis/analyze_glicko2_one_game_at_a_time.py
 The analysis scripts import some common utility code that includes some parameters
 to tune, such as the variables used in converting ratings to ranks, glicko2 variables,
 and that sort of thing. For a full up to date list, run an analysis script with `--help`
+
+# Requirements
+
+When running PyPy3, you might need to have some (or all) of the following dependencies, **before** pip installing moudules from requirements.txt:
+
+```
+brew install swig # Required for C/C++ extensions
+# if Scipy PyPy3 wheels are not available for your OS:
+brew install scipy
+# if pip stuggles with pygsl:
+brew install gsl
+```
+
+# Running in CPython 3.10-3.13+
+
+Certain scripts are not compatible with CPython due to stricter OverflowError handling (overflow of max python float value). This behaviour is currently known around `glicko2_update()` in Step 5 (root finding interation for sigma prime).

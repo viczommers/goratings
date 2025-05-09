@@ -2,6 +2,5 @@ tox
 python-dateutil
 scipy
 numpy
-pygsl
+pygsl # Optional
 filelock
-python-dateutil

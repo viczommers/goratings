@@ -358,7 +358,7 @@ class TallyGameAnalytics:
         if os.path.exists(pathname + 'self_reported_account_links.full.json'):
             pathname += 'self_reported_account_links.full.json'
         elif os.path.exists(pathname + 'self_reported_account_links.json'):
-            pathname = 'self_reported_account_links.json'
+            pathname += 'self_reported_account_links.json'
         else:
             raise Exception('Failed to find self_reported_account_links json file')
 
@@ -458,7 +458,7 @@ class TallyGameAnalytics:
         if os.path.exists(pathname + 'self_reported_account_links.full.json'):
             pathname += 'self_reported_account_links.full.json'
         elif os.path.exists(pathname + 'self_reported_account_links.json'):
-            pathname = 'self_reported_account_links.json'
+            pathname += 'self_reported_account_links.json'
         else:
             raise Exception('Failed to find self_reported_account_links json file')
 
